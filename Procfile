@@ -1,2 +1,2 @@
-web: gunicorn hello_proj.wsgi --log-file -
+web: gunicorn Erasmusmates.wsgi --log-file -
 
