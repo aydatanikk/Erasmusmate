@@ -25,7 +25,9 @@ SECRET_KEY = '+ru^-az!8_zi%ap1&a)ypvy!r9i3i8s^@+(=vc!*&bpt=(q%+@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'erasmusmates.herokuapp.com',
+]
 
 
 # Application definition
