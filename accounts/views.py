@@ -7,7 +7,12 @@ from accounts.forms import (
     ProfileForm,
 )
 from accounts.models import UserProfile
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import (
+    render,
+    HttpResponse,
+    redirect,
+    get_object_or_404,
+)
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash,login, authenticate    #after changing password user , we want to remain logged in
@@ -53,11 +58,16 @@ def register(request):
 #@login_required     #this is a decorator
 def view_profile(request, pk=None): #pk is not Required
     if pk:
-        user = User.objects.get(pk=pk)
+        user = get_object_or_404(User, pk=pk)
     else:
         user = request.user
     args = {'user': user}
     return render(request, 'accounts/profile.html',args)
+
+#@login_required     #this is a decorator
+def view_list_accounts(request):
+    args = {'users': UserProfile.objects.all()}
+    return render(request, 'accounts/list_mates.html', args)
 
 #@login_required
 @transaction.atomic

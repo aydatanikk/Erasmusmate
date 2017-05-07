@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'flats',
     'home',
 ]
 
@@ -140,5 +141,3 @@ LOGIN_EXEMPT_URLS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-
-
